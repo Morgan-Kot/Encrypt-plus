@@ -2,7 +2,7 @@ NAME = "STWE01 (Stewie)"
 DESCRIPTION = "Standard Two way Encryption No.1 - Tokenized feedback state encryption"
 CREATOR = "Morgan Kot"
 YEAR = "2026"
-COPYRIGHT = "MIT "
+COPYRIGHT = "N/A"
 GITHUB_URL = "https://github.com/Morgan-Kot/Encrypt-plus"
 
 
