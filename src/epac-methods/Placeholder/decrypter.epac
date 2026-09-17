@@ -1,0 +1,21 @@
+def decrypt(ciphertext: str) -> str:
+    if not ciphertext.strip():
+        return ""
+    tokens = [int(t) for t in ciphertext.strip().split("_") if t]
+    if len(tokens) % 4 != 0:
+        raise ValueError("Invalid ciphertext structure.")
+
+    state = 0x8F3C
+    out_bytes = bytearray()
+    
+    for i in range(0, len(tokens), 4):
+        idx = i // 4
+        t1 = tokens[i]
+        
+        k1 = (state + idx * 13) % 256
+        b1 = (t1 - k1) % 256
+        
+        out_bytes.append(b1)
+        state = (state * 251 + b1 + idx * 9) % 65536
+
+    return out_bytes.decode('utf-8', errors='replace')
